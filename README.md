@@ -45,12 +45,10 @@ Create a JSON file with details of your SMTP server to be used for outgoing emai
         cat smtp.json
         {
             "from": "from-email@gmail.com",
-            "host": "smtp.gmail.net",
-            "user": "apikey",
+            "host": "smtp.gmail.com",
             "port": 587,
+            "user": "user",
             "password": "........",
-            "use_tls": true,
-            "use_ssl": false
         }
 
 
