@@ -3,9 +3,11 @@
 Monitoring tool for your SSL certificates, sends email notifications about expiring certificates
 
 
-        usage: ssl_monitor [-h] [-t THRESHOLD] -e EMAIL -c CREDENTIALS [domain [domain ...]]
+        usage: ssl_monitor [-h] [-t THRESHOLD] -e EMAIL -c CREDENTIALS
+                           [domain [domain ...]]
 
-        Monitoring tool for your SSL certificates, sends email notifications about expiring certificates
+        Monitoring tool for your SSL certificates, sends email notifications about
+        expiring certificates
 
         positional arguments:
           domain                List of domain names to be monitored
@@ -13,11 +15,13 @@ Monitoring tool for your SSL certificates, sends email notifications about expir
         optional arguments:
           -h, --help            show this help message and exit
           -t THRESHOLD, --threshold THRESHOLD
-                                Number of days before expiration when notification should be sent
+                                Number of days before expiration when notification
+                                should be sent
           -e EMAIL, --email EMAIL
                                 Destination email addresses to receive notifications
           -c CREDENTIALS, --credentials CREDENTIALS
-                                File path with JSON-formatted SMTP server details to be used for outgoing emails
+                                File path with JSON-formatted SMTP server details to
+                                be used for outgoing emails
 
         coded by Veselin Penev aka github.com/vesellov
 
