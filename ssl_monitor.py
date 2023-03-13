@@ -78,9 +78,9 @@ def main():
         help='Number of days before expiration when notification should be sent',
     )
     parser.add_argument(
-        '-e', '--email',
+        '-e', '--emails',
         required=True,
-        help='Destination email addresses to receive notifications',
+        help='Comma-separated list of destination email addresses to receive notifications',
     )
     parser.add_argument(
         '-c', '--credentials',
@@ -95,7 +95,8 @@ def main():
         expire_date = get_expire_date(domain)
         days_before_expire = (expire_date - datetime.datetime.now()).days
         if days_before_expire < args.threshold:
-            send_email_notification(args.email, smtp_info, domain, days_before_expire, expire_date)
+            for email in args.emails.strip().split(','):
+                send_email_notification(email.strip(), smtp_info, domain, days_before_expire, expire_date)
 
 
 if __name__ == '__main__':
