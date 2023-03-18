@@ -17,8 +17,9 @@ Monitoring tool for your SSL certificates, sends email notifications about expir
           -t THRESHOLD, --threshold THRESHOLD
                                 Number of days before expiration when notification
                                 should be sent
-          -e EMAIL, --email EMAIL
-                                Destination email addresses to receive notifications
+          -e EMAILS, --email EMAILS
+                                Comma-separated list of destination email addresses
+                                to receive notifications
           -c CREDENTIALS, --credentials CREDENTIALS
                                 File path with JSON-formatted SMTP server details to
                                 be used for outgoing emails
