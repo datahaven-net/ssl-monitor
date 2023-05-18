@@ -1,3 +1,4 @@
+import time
 import argparse
 import datetime
 import OpenSSL
@@ -91,11 +92,14 @@ def main():
 
     smtp_info = json.loads(open(args.credentials).read())
 
+    print('started', time.asctime(), 'threshold is', args.threshold)
     for domain in args.domain:
         expire_date = get_expire_date(domain)
         days_before_expire = (expire_date - datetime.datetime.now()).days
+        print('  ', domain, days_before_expire)
         if days_before_expire < args.threshold:
             for email in args.emails.strip().split(','):
+                print('      sending email to', email)
                 send_email_notification(email.strip(), smtp_info, domain, days_before_expire, expire_date)
 
 
