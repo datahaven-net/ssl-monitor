@@ -48,15 +48,12 @@ Please take the necessary steps and renew your certificate to ensure the securit
 This is an automatic notification.
 
 The SSL certificate for the {} domain was not verified because of the error: {}
-
-Please take the necessary steps and renew your certificate to ensure the security of your server.
 """.format(domain, str(err))
         html = """
 <html>
   <body>
     <p>This is an automatic notification.</p>
-    <p>The SSL certificate for the {} domain was not verified because of the error: {}
-    <p>Please take the necessary steps and renew your certificate to ensure the security of your server.</p>
+    <p>The SSL certificate for the {} domain was not verified because of an error: <b>{}</b>
   </body>
 </html>
 """.format(domain, str(err))
@@ -66,7 +63,7 @@ Please take the necessary steps and renew your certificate to ensure the securit
     if days_left:
         message["Subject"] = "%s certificate expires in %d days" % (domain, days_left, )
     else:
-        message["Subject"] = "%s certificate was not verified" % domain
+        message["Subject"] = "%s certificate was not verified due to an error" % domain
     message["From"] = smtp_info['from']
     message["To"] = receiver_email
     message.attach(MIMEText(text, "plain"))
